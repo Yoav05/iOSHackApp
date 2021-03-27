@@ -25,8 +25,8 @@ final class LocalModel: ModelProtocol {
         completion(news)
     }
     
-    func getGuide(completion: @escaping (GuideModel) -> Void) {
-        completion(guide.first!)
+    func getGuide(completion: @escaping ([GuideModel]) -> Void) {
+        completion(guide)
     }
     
     func getCities(completion: @escaping ([CityModel]) -> Void) {

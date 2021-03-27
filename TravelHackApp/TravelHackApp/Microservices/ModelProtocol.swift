@@ -9,7 +9,6 @@ import Foundation
 
 protocol ModelProtocol {
     func getStory(completion: @escaping ([StoryModel]) -> Void)
-    func getNews(completion: @escaping ([NewsModel]) -> Void)
-    func getGuide(completion: @escaping (GuideModel) -> Void)
+    func getGuide(completion: @escaping ([GuideModel]) -> Void)
     func getCities(completion: @escaping ([CityModel]) -> Void)
 }

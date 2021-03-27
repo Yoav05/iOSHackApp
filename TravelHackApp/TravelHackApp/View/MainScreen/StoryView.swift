@@ -31,11 +31,13 @@ struct StoryView: View {
                             .font(.footnote)
                             .frame(width: Layout.storyHeight, alignment: .center)
                             .multilineTextAlignment(.center)
+                        Spacer()
                     }
                 }
             }
+            .padding()
         }
-        .padding(.horizontal)
+//        .padding()
     }
 }
 

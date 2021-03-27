@@ -22,7 +22,6 @@ struct MainView: View {
                 HeaderView().environmentObject(viewModel)
                 StoryView().environmentObject(viewModel)
                     .padding(.bottom)
-                GuideView().environmentObject(viewModel)
                 NewsArrayView().environmentObject(viewModel)
                 Spacer()
             }
@@ -31,7 +30,6 @@ struct MainView: View {
         .onAppear {
             viewModel.getStories()
             viewModel.getGuide()
-            viewModel.getNews()
         }
     }
 }

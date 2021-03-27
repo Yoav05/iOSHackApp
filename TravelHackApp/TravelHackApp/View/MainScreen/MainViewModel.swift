@@ -18,29 +18,14 @@ final class MainViewModel: ObservableObject {
     }
     
     @Published var stories: [StoryModel] = []
-    @Published var news: [NewsModel] = []
     @Published var cities: [CityModel] = []
-    @Published var guide: GuideModel = GuideModel(
-        previewImageUrl: "",
-        title: "",
-        description: "",
-        inner: GuideModel.InnerModel(title: "", description: "", imagesUrl: nil)
-    )
+    @Published var guides: [GuideModel] = []
     
     func getStories() {
         modelService.getStory { [weak self] stories in
             guard let self = self else { return }
             DispatchQueue.main.async {
                 self.stories = stories
-            }
-        }
-    }
-    
-    func getNews() {
-        modelService.getNews { [weak self] news in
-            guard let self = self else { return }
-            DispatchQueue.main.async {
-                self.news = news
             }
         }
     }
@@ -55,10 +40,11 @@ final class MainViewModel: ObservableObject {
     }
     
     func getGuide() {
-        modelService.getGuide { [weak self] guide in
+        modelService.getGuide { [weak self] guides in
             guard let self = self else { return }
             DispatchQueue.main.async {
-                self.guide = guide
+                self.guides = guides
+                print(guides)
             }
         }
     }

@@ -12,8 +12,8 @@ struct NewsArrayView: View {
     @EnvironmentObject private var viewModel: MainViewModel
     
     var body: some View {
-        ForEach(viewModel.news, id: \.self) { newsModel in
-            NewsView(viewModel: newsModel)
+        ForEach(viewModel.guides, id: \.self) { guideModel in
+            NewsView(viewModel: guideModel)
         }
     }
 }
