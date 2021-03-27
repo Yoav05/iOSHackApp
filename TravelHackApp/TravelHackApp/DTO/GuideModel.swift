@@ -11,7 +11,7 @@ struct GuideModel: Codable, Hashable {
     var previewImageUrl: String
     var title: String
     var description: String
-    var inner: InnerModel
+    var inner: InnerModel?
     var date: String?
     var raiting: Int = 0
     

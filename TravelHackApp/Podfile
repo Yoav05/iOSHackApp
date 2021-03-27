@@ -8,6 +8,7 @@ target 'TravelHackApp' do
   # Pods for TravelHackApp
 
   pod 'Shuffle-iOS'
+  pod 'SDWebImageSwiftUI'
 
   target 'TravelHackAppTests' do
     inherit! :search_paths

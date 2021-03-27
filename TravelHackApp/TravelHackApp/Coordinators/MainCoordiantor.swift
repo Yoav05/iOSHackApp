@@ -9,6 +9,7 @@ import SwiftUI
 import UIKit
 
 final class MainCoordinator: Coordinator {
+    
     var childCoordinators: [Coordinator] = []
     
     var container: [UIViewController] = []
@@ -18,18 +19,22 @@ final class MainCoordinator: Coordinator {
     private let window: UIWindow
     private let builder: ViewBuilderProtocol
     
-    init(window: UIWindow,
-         navigationController: UINavigationController,
-         builder: ViewBuilderProtocol) {
+    init(
+        window: UIWindow,
+        navigationController: UINavigationController,
+        builder: ViewBuilderProtocol
+    ) {
         self.window = window
         self.navigationController = navigationController
         self.builder = builder
     }
     
     func start() {
-        window.rootViewController = navigationController
+//        window.rootViewController = navigationController
         let controller = builder.createMainScreeen(coordinator: self)
-        navigationController.pushViewController(controller, animated: true)
+        container.append(controller)
+        window.rootViewController = controller
+//        navigationController.pushViewController(controller, animated: true)
     }
 }
 

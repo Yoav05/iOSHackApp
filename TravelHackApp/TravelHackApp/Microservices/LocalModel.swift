@@ -22,11 +22,11 @@ final class LocalModel: ModelProtocol {
     }
     
     func getNews(completion: @escaping ([NewsModel]) -> Void) {
-        // TODO: -
+        completion(news)
     }
     
     func getGuide(completion: @escaping (GuideModel) -> Void) {
-        // TODO: -
+        completion(guide.first!)
     }
     
     func getCities(completion: @escaping ([CityModel]) -> Void) {
@@ -38,6 +38,18 @@ final class LocalModel: ModelProtocol {
             let data = try! Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
             let stories = try! JSONDecoder().decode([StoryModel].self, from: data)
             self.stories = stories
+        }
+        
+        if let path = try! Bundle.main.path(forResource: "guide", ofType: "json") {
+            let data = try! Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
+            let guide = try! JSONDecoder().decode(GuideModel.self, from: data)
+            self.guide = [guide]
+        }
+        
+        if let path = try! Bundle.main.path(forResource: "news", ofType: "json") {
+            let data = try! Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
+            let news = try! JSONDecoder().decode([NewsModel].self, from: data)
+            self.news = news
         }
     }
 }

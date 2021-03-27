@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SDWebImageSwiftUI
 
 struct MainView: View {
     
@@ -17,11 +18,19 @@ struct MainView: View {
     
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
-            ForEach(viewModel.stories, id: \.self) { story in
-                Text(story.circleTitle)
+            VStack(alignment: .leading) {
+                StoryView().environmentObject(viewModel)
+                    .padding(.bottom)
+                GuideView().environmentObject(viewModel)
+                NewsArrayView().environmentObject(viewModel)
+                Spacer()
             }
-        }.onAppear {
+        }
+        .padding(.vertical)
+        .onAppear {
             viewModel.getStories()
+            viewModel.getGuide()
+            viewModel.getNews()
         }
     }
 }
