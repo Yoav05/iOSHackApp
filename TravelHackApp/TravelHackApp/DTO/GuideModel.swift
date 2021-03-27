@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct GuideModel {
+struct GuideModel: Codable, Hashable {
     var previewImageUrl: String
     var title: String
     var description: String
@@ -15,7 +15,7 @@ struct GuideModel {
     var date: String?
     var raiting: Int = 0
     
-    struct InnerModel {
+    struct InnerModel: Codable, Hashable {
         var title: String
         var description: String
         var imagesUrl: [String]?

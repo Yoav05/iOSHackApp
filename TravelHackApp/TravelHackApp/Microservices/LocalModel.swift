@@ -18,7 +18,7 @@ final class LocalModel: ModelProtocol {
     }
     
     func getStory(completion: @escaping ([StoryModel]) -> Void) {
-        // TODO: -
+        completion(stories)
     }
     
     func getNews(completion: @escaping ([NewsModel]) -> Void) {
@@ -36,8 +36,8 @@ final class LocalModel: ModelProtocol {
     func readFromFile() {
         if let path = try! Bundle.main.path(forResource: "stories", ofType: "json") {
             let data = try! Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
-            let jsonResult = try! JSONSerialization.jsonObject(with: data, options: .mutableLeaves)
-            print(jsonResult)
+            let stories = try! JSONDecoder().decode([StoryModel].self, from: data)
+            self.stories = stories
         }
     }
 }

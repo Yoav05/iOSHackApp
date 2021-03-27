@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct NewsModel {
+struct NewsModel: Codable, Hashable {
     var previewImageUrl: String
     var title: String
     var description: String

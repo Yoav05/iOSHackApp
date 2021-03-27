@@ -7,13 +7,13 @@
 
 import Foundation
 
-struct CityModel {
+struct CityModel: Codable, Hashable {
     var title: String
     
     var longtitude: Point?
     var latitude: Point?
     
-    struct Point {
+    struct Point: Codable, Hashable {
         var x: Double
         var y: Double
     }

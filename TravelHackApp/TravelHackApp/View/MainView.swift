@@ -17,7 +17,11 @@ struct MainView: View {
     
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
-            Text("Hello world")
+            ForEach(viewModel.stories, id: \.self) { story in
+                Text(story.circleTitle)
+            }
+        }.onAppear {
+            viewModel.getStories()
         }
     }
 }

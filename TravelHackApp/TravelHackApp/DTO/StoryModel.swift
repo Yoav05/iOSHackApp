@@ -7,15 +7,15 @@
 
 import Foundation
 
-struct StoryModel: Codable {
+struct StoryModel: Codable, Hashable {
     var circleImageUrl: String
     var circleTitle: String
     
     var substories: [SingleStorу]
     
-    struct SingleStorу: Codable {
+    struct SingleStorу: Codable, Hashable {
         var description: String?
-        var image: String
+        var imageUrl: String
         var link: String?
     }
 }
