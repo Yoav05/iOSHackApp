@@ -9,12 +9,27 @@
 /* Begin PBXBuildFile section */
 		53839204260F32AE002CAC18 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53839203260F32AE002CAC18 /* AppDelegate.swift */; };
 		53839206260F32AE002CAC18 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53839205260F32AE002CAC18 /* SceneDelegate.swift */; };
-		53839208260F32AE002CAC18 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53839207260F32AE002CAC18 /* ContentView.swift */; };
 		5383920A260F32B1002CAC18 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 53839209260F32B1002CAC18 /* Assets.xcassets */; };
 		5383920D260F32B1002CAC18 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5383920C260F32B1002CAC18 /* Preview Assets.xcassets */; };
 		53839210260F32B1002CAC18 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5383920E260F32B1002CAC18 /* LaunchScreen.storyboard */; };
 		5383921B260F32B2002CAC18 /* TravelHackAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5383921A260F32B2002CAC18 /* TravelHackAppTests.swift */; };
 		53839226260F32B2002CAC18 /* TravelHackAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53839225260F32B2002CAC18 /* TravelHackAppUITests.swift */; };
+		53839250260F349D002CAC18 /* MainCoordiantor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5383924F260F349D002CAC18 /* MainCoordiantor.swift */; };
+		53839256260F34BB002CAC18 /* ViewBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53839255260F34BB002CAC18 /* ViewBuilder.swift */; };
+		5383925E260F3515002CAC18 /* CoordinatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5383925D260F3515002CAC18 /* CoordinatorProtocol.swift */; };
+		53839263260F3640002CAC18 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53839262260F3640002CAC18 /* MainView.swift */; };
+		53839268260F3651002CAC18 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53839267260F3651002CAC18 /* MainViewModel.swift */; };
+		53839271260F37CC002CAC18 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53839270260F37CC002CAC18 /* NetworkService.swift */; };
+		53839279260F37FF002CAC18 /* LocalModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53839278260F37FF002CAC18 /* LocalModel.swift */; };
+		5383927E260F3817002CAC18 /* ModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5383927D260F3817002CAC18 /* ModelProtocol.swift */; };
+		53839284260F38A9002CAC18 /* StoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53839283260F38A9002CAC18 /* StoryModel.swift */; };
+		53839289260F3A70002CAC18 /* NewsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53839288260F3A70002CAC18 /* NewsModel.swift */; };
+		5383928E260F3A85002CAC18 /* CityModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5383928D260F3A85002CAC18 /* CityModel.swift */; };
+		53839293260F3C8F002CAC18 /* GuideModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53839292260F3C8F002CAC18 /* GuideModel.swift */; };
+		5383929B260F45E0002CAC18 /* stories.json in Resources */ = {isa = PBXBuildFile; fileRef = 5383929A260F45E0002CAC18 /* stories.json */; };
+		538392A1260F461F002CAC18 /* news.json in Resources */ = {isa = PBXBuildFile; fileRef = 538392A0260F461F002CAC18 /* news.json */; };
+		538392A6260F462F002CAC18 /* guide.json in Resources */ = {isa = PBXBuildFile; fileRef = 538392A5260F462F002CAC18 /* guide.json */; };
+		538392AB260F463E002CAC18 /* cities.json in Resources */ = {isa = PBXBuildFile; fileRef = 538392AA260F463E002CAC18 /* cities.json */; };
 		933FDB8D708C5F4805B723E1 /* Pods_TravelHackApp_TravelHackAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45BCBA04F5DB6CE9DC7F1994 /* Pods_TravelHackApp_TravelHackAppUITests.framework */; };
 		BC02FF6EDBA0B442CFEAD300 /* Pods_TravelHackAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5A9385D15B484D9DAF57757 /* Pods_TravelHackAppTests.framework */; };
 		DAE5ED7088C87276ABD3A921 /* Pods_TravelHackApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF44BB462717CD6C28459D3D /* Pods_TravelHackApp.framework */; };
@@ -44,7 +59,6 @@
 		53839200260F32AE002CAC18 /* TravelHackApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TravelHackApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		53839203260F32AE002CAC18 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		53839205260F32AE002CAC18 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		53839207260F32AE002CAC18 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		53839209260F32B1002CAC18 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5383920C260F32B1002CAC18 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		5383920F260F32B1002CAC18 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -55,6 +69,22 @@
 		53839221260F32B2002CAC18 /* TravelHackAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TravelHackAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		53839225260F32B2002CAC18 /* TravelHackAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelHackAppUITests.swift; sourceTree = "<group>"; };
 		53839227260F32B2002CAC18 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5383924F260F349D002CAC18 /* MainCoordiantor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordiantor.swift; sourceTree = "<group>"; };
+		53839255260F34BB002CAC18 /* ViewBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewBuilder.swift; sourceTree = "<group>"; };
+		5383925D260F3515002CAC18 /* CoordinatorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorProtocol.swift; sourceTree = "<group>"; };
+		53839262260F3640002CAC18 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		53839267260F3651002CAC18 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		53839270260F37CC002CAC18 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		53839278260F37FF002CAC18 /* LocalModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalModel.swift; sourceTree = "<group>"; };
+		5383927D260F3817002CAC18 /* ModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelProtocol.swift; sourceTree = "<group>"; };
+		53839283260F38A9002CAC18 /* StoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryModel.swift; sourceTree = "<group>"; };
+		53839288260F3A70002CAC18 /* NewsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsModel.swift; sourceTree = "<group>"; };
+		5383928D260F3A85002CAC18 /* CityModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityModel.swift; sourceTree = "<group>"; };
+		53839292260F3C8F002CAC18 /* GuideModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideModel.swift; sourceTree = "<group>"; };
+		5383929A260F45E0002CAC18 /* stories.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = stories.json; sourceTree = "<group>"; };
+		538392A0260F461F002CAC18 /* news.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = news.json; sourceTree = "<group>"; };
+		538392A5260F462F002CAC18 /* guide.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = guide.json; sourceTree = "<group>"; };
+		538392AA260F463E002CAC18 /* cities.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = cities.json; sourceTree = "<group>"; };
 		62AC98924A1F956D928C213D /* Pods-TravelHackApp-TravelHackAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TravelHackApp-TravelHackAppUITests.debug.xcconfig"; path = "Target Support Files/Pods-TravelHackApp-TravelHackAppUITests/Pods-TravelHackApp-TravelHackAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		8DD0F57AC570880F776080B7 /* Pods-TravelHackApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TravelHackApp.release.xcconfig"; path = "Target Support Files/Pods-TravelHackApp/Pods-TravelHackApp.release.xcconfig"; sourceTree = "<group>"; };
 		A5A9385D15B484D9DAF57757 /* Pods_TravelHackAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TravelHackAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -129,12 +159,13 @@
 		53839202260F32AE002CAC18 /* TravelHackApp */ = {
 			isa = PBXGroup;
 			children = (
+				53839282260F389F002CAC18 /* DTO */,
+				5383926F260F37BA002CAC18 /* Microservices */,
+				53839254260F34AD002CAC18 /* Builders */,
 				5383923D260F33E8002CAC18 /* Coordinators */,
-				5383924B260F33FB002CAC18 /* Model */,
 				53839241260F33F4002CAC18 /* View */,
 				53839203260F32AE002CAC18 /* AppDelegate.swift */,
 				53839205260F32AE002CAC18 /* SceneDelegate.swift */,
-				53839207260F32AE002CAC18 /* ContentView.swift */,
 				53839209260F32B1002CAC18 /* Assets.xcassets */,
 				5383920E260F32B1002CAC18 /* LaunchScreen.storyboard */,
 				53839211260F32B2002CAC18 /* Info.plist */,
@@ -172,6 +203,8 @@
 		5383923D260F33E8002CAC18 /* Coordinators */ = {
 			isa = PBXGroup;
 			children = (
+				5383924F260F349D002CAC18 /* MainCoordiantor.swift */,
+				5383925D260F3515002CAC18 /* CoordinatorProtocol.swift */,
 			);
 			path = Coordinators;
 			sourceTree = "<group>";
@@ -179,15 +212,51 @@
 		53839241260F33F4002CAC18 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				53839262260F3640002CAC18 /* MainView.swift */,
+				53839267260F3651002CAC18 /* MainViewModel.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
 		};
-		5383924B260F33FB002CAC18 /* Model */ = {
+		53839254260F34AD002CAC18 /* Builders */ = {
 			isa = PBXGroup;
 			children = (
+				53839255260F34BB002CAC18 /* ViewBuilder.swift */,
 			);
-			path = Model;
+			path = Builders;
+			sourceTree = "<group>";
+		};
+		5383926F260F37BA002CAC18 /* Microservices */ = {
+			isa = PBXGroup;
+			children = (
+				5383929F260F45FC002CAC18 /* Data */,
+				53839270260F37CC002CAC18 /* NetworkService.swift */,
+				53839278260F37FF002CAC18 /* LocalModel.swift */,
+				5383927D260F3817002CAC18 /* ModelProtocol.swift */,
+			);
+			path = Microservices;
+			sourceTree = "<group>";
+		};
+		53839282260F389F002CAC18 /* DTO */ = {
+			isa = PBXGroup;
+			children = (
+				53839283260F38A9002CAC18 /* StoryModel.swift */,
+				53839288260F3A70002CAC18 /* NewsModel.swift */,
+				53839292260F3C8F002CAC18 /* GuideModel.swift */,
+				5383928D260F3A85002CAC18 /* CityModel.swift */,
+			);
+			path = DTO;
+			sourceTree = "<group>";
+		};
+		5383929F260F45FC002CAC18 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				5383929A260F45E0002CAC18 /* stories.json */,
+				538392A0260F461F002CAC18 /* news.json */,
+				538392A5260F462F002CAC18 /* guide.json */,
+				538392AA260F463E002CAC18 /* cities.json */,
+			);
+			path = Data;
 			sourceTree = "<group>";
 		};
 		9F29E8751C077C51120F47A5 /* Frameworks */ = {
@@ -309,8 +378,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				53839210260F32B1002CAC18 /* LaunchScreen.storyboard in Resources */,
+				538392A1260F461F002CAC18 /* news.json in Resources */,
+				538392A6260F462F002CAC18 /* guide.json in Resources */,
 				5383920D260F32B1002CAC18 /* Preview Assets.xcassets in Resources */,
+				538392AB260F463E002CAC18 /* cities.json in Resources */,
 				5383920A260F32B1002CAC18 /* Assets.xcassets in Resources */,
+				5383929B260F45E0002CAC18 /* stories.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -438,9 +511,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				53839289260F3A70002CAC18 /* NewsModel.swift in Sources */,
 				53839204260F32AE002CAC18 /* AppDelegate.swift in Sources */,
+				53839263260F3640002CAC18 /* MainView.swift in Sources */,
+				53839284260F38A9002CAC18 /* StoryModel.swift in Sources */,
+				5383928E260F3A85002CAC18 /* CityModel.swift in Sources */,
+				53839271260F37CC002CAC18 /* NetworkService.swift in Sources */,
+				53839250260F349D002CAC18 /* MainCoordiantor.swift in Sources */,
+				53839279260F37FF002CAC18 /* LocalModel.swift in Sources */,
+				5383925E260F3515002CAC18 /* CoordinatorProtocol.swift in Sources */,
 				53839206260F32AE002CAC18 /* SceneDelegate.swift in Sources */,
-				53839208260F32AE002CAC18 /* ContentView.swift in Sources */,
+				53839293260F3C8F002CAC18 /* GuideModel.swift in Sources */,
+				5383927E260F3817002CAC18 /* ModelProtocol.swift in Sources */,
+				53839256260F34BB002CAC18 /* ViewBuilder.swift in Sources */,
+				53839268260F3651002CAC18 /* MainViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
