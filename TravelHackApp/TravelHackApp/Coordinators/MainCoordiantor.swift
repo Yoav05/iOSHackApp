@@ -45,5 +45,19 @@ final class MainCoordinator: Coordinator {
         let controller = builder.createRoutScreen(coordinator: self)
         navigationController.pushViewController(controller, animated: true)
     }
+    
+    func showPayScreen() {
+        let controller = builder.createPayScreen(coordinator: self)
+        navigationController.pushViewController(controller, animated: true)
+    }
+    
+    func showQrScreen() {
+        let controller = builder.createQrScreen(coordinator: self)
+        navigationController.pushViewController(controller, animated: true)
+    }
+    
+    func nextAfterQR() {
+        dismissPresentedController()
+    }
 }
 

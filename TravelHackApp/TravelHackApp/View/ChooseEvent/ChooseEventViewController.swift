@@ -39,10 +39,11 @@ final class ChooseEventViewController: UIViewController {
     
     private lazy var doneButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setTitle("Поехали".uppercased(), for: .normal)
+        button.setTitle("Поехали", for: .normal)
         button.backgroundColor = .systemGreen
         button.setTitleColor(.white, for: .normal)
         button.layer.cornerRadius = 10
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .semibold)
         return button
     }()
     

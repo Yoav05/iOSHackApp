@@ -1,5 +1,5 @@
 //
-//  RoutScreenViewController.swift
+//  PayViewController.swift
 //  TravelHackApp
 //
 //  Created by Yoav Nemirovsky on 27.03.2021.
@@ -8,7 +8,7 @@
 import SwiftUI
 import UIKit
 
-class RoutScreenViewController: UIHostingController<RoutScreen> {
+class PayScreenViewController: UIHostingController<PayScreen> {
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.setNavigationBarHidden(false, animated: true)
     }
@@ -22,18 +22,18 @@ class RoutScreenViewController: UIHostingController<RoutScreen> {
     }
 }
 
-struct RoutScreen: View {
+struct PayScreen: View {
     
-    private let viewModel: RoutViewModel
+    private let viewModel: PayViewModel
     
-    init(viewModel: RoutViewModel) {
+    init(viewModel: PayViewModel) {
         self.viewModel = viewModel
     }
     
     var body: some View {
         
         VStack {
-            Text("Экран с маршутами")
+            Text("Экран оплаты")
             Spacer()
             payButton
         }
@@ -41,7 +41,7 @@ struct RoutScreen: View {
     
     var payButton: some View {
         Button {
-            viewModel.payScreen()
+            viewModel.qrCodeScreen()
         } label: {
             ZStack {
                 RoundedRectangle(cornerRadius: 10)

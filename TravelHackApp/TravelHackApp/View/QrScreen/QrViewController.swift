@@ -1,5 +1,5 @@
 //
-//  RoutScreenViewController.swift
+//  QrViewController.swift
 //  TravelHackApp
 //
 //  Created by Yoav Nemirovsky on 27.03.2021.
@@ -8,7 +8,7 @@
 import SwiftUI
 import UIKit
 
-class RoutScreenViewController: UIHostingController<RoutScreen> {
+class QrScreenViewController: UIHostingController<QrScreen> {
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.setNavigationBarHidden(false, animated: true)
     }
@@ -22,18 +22,18 @@ class RoutScreenViewController: UIHostingController<RoutScreen> {
     }
 }
 
-struct RoutScreen: View {
+struct QrScreen: View {
     
-    private let viewModel: RoutViewModel
+    private let viewModel: QrViewModel
     
-    init(viewModel: RoutViewModel) {
+    init(viewModel: QrViewModel) {
         self.viewModel = viewModel
     }
     
     var body: some View {
         
         VStack {
-            Text("Экран с маршутами")
+            Text("Экран с QR кодом")
             Spacer()
             payButton
         }
@@ -41,12 +41,12 @@ struct RoutScreen: View {
     
     var payButton: some View {
         Button {
-            viewModel.payScreen()
+            viewModel.nextAction()
         } label: {
             ZStack {
                 RoundedRectangle(cornerRadius: 10)
                     .foregroundColor(Color(UIColor.systemGreen))
-                Text("Оплатить")
+                Text("Готово")
                     .font(.headline)
                     .foregroundColor(.white)
             }

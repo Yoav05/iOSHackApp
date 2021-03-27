@@ -12,6 +12,8 @@ protocol ViewBuilderProtocol {
     func createMainScreeen(coordinator: MainCoordinator) -> UIViewController
     func createKolodaScreen(coordinator: MainCoordinator) -> UIViewController
     func createRoutScreen(coordinator: MainCoordinator) -> UIViewController
+    func createPayScreen(coordinator: MainCoordinator) -> UIViewController
+    func createQrScreen(coordinator: MainCoordinator) -> UIViewController
 }
 
 final class ViewBuilder: ViewBuilderProtocol {
@@ -31,8 +33,26 @@ final class ViewBuilder: ViewBuilderProtocol {
     }
     
     func createRoutScreen(coordinator: MainCoordinator) -> UIViewController {
-        let view = RoutScreen()
+        let model = LocalModel()
+        let viewModel = RoutViewModel(coordinator: coordinator, service: model)
+        let view = RoutScreen(viewModel: viewModel)
         let controller = RoutScreenViewController(rootView: view)
+        return controller
+    }
+    
+    func createPayScreen(coordinator: MainCoordinator) -> UIViewController {
+        let model = LocalModel()
+        let viewModel = PayViewModel(coordinator: coordinator, service: model)
+        let view = PayScreen(viewModel: viewModel)
+        let controller = PayScreenViewController(rootView: view)
+        return controller
+    }
+    
+    func createQrScreen(coordinator: MainCoordinator) -> UIViewController {
+        let model = LocalModel()
+        let viewModel = QrViewModel(coordinator: coordinator, service: model)
+        let view = QrScreen(viewModel: viewModel)
+        let controller = QrScreenViewController(rootView: view)
         return controller
     }
 }
