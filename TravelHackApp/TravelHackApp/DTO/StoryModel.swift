@@ -13,7 +13,7 @@ struct StoryModel: Codable {
     
     var substories: [SingleStorу]
     
-    struct SingleStorу {
+    struct SingleStorу: Codable {
         var description: String?
         var image: String
         var link: String?

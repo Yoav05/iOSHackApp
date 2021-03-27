@@ -14,7 +14,8 @@ protocol ViewBuilderProtocol {
 
 final class ViewBuilder: ViewBuilderProtocol {
     func createMainScreeen(coordinator: MainCoordinator) -> UIViewController {
-        let viewModel = MainViewModel(coordinator: coordinator)
+        let model = NetworkService()
+        let viewModel = MainViewModel(coordinator: coordinator, modelService: model)
         let view = MainView(viewModel: viewModel)
         let controller = UIHostingController(rootView: view)
         return controller
