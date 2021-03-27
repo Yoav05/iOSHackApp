@@ -7,7 +7,7 @@ target 'TravelHackApp' do
 
   # Pods for TravelHackApp
 
-  pod 'Shuffle-iOS'
+  pod 'Koloda'
   pod 'SDWebImageSwiftUI'
 
   target 'TravelHackAppTests' do
