@@ -34,6 +34,7 @@
 		538392C6260F53F6002CAC18 /* GuideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538392C5260F53F6002CAC18 /* GuideView.swift */; };
 		538392CE260F62F3002CAC18 /* NewsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538392CD260F62F3002CAC18 /* NewsView.swift */; };
 		538392DB260F6711002CAC18 /* NewsArrayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538392DA260F6711002CAC18 /* NewsArrayView.swift */; };
+		538392E0260F6E55002CAC18 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538392DF260F6E55002CAC18 /* HeaderView.swift */; };
 		933FDB8D708C5F4805B723E1 /* Pods_TravelHackApp_TravelHackAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45BCBA04F5DB6CE9DC7F1994 /* Pods_TravelHackApp_TravelHackAppUITests.framework */; };
 		BC02FF6EDBA0B442CFEAD300 /* Pods_TravelHackAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5A9385D15B484D9DAF57757 /* Pods_TravelHackAppTests.framework */; };
 		DAE5ED7088C87276ABD3A921 /* Pods_TravelHackApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF44BB462717CD6C28459D3D /* Pods_TravelHackApp.framework */; };
@@ -93,6 +94,7 @@
 		538392C5260F53F6002CAC18 /* GuideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideView.swift; sourceTree = "<group>"; };
 		538392CD260F62F3002CAC18 /* NewsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsView.swift; sourceTree = "<group>"; };
 		538392DA260F6711002CAC18 /* NewsArrayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsArrayView.swift; sourceTree = "<group>"; };
+		538392DF260F6E55002CAC18 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		62AC98924A1F956D928C213D /* Pods-TravelHackApp-TravelHackAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TravelHackApp-TravelHackAppUITests.debug.xcconfig"; path = "Target Support Files/Pods-TravelHackApp-TravelHackAppUITests/Pods-TravelHackApp-TravelHackAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		8DD0F57AC570880F776080B7 /* Pods-TravelHackApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TravelHackApp.release.xcconfig"; path = "Target Support Files/Pods-TravelHackApp/Pods-TravelHackApp.release.xcconfig"; sourceTree = "<group>"; };
 		A5A9385D15B484D9DAF57757 /* Pods_TravelHackAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TravelHackAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -220,6 +222,7 @@
 		53839241260F33F4002CAC18 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				538392E4260F6E68002CAC18 /* Header */,
 				53839267260F3651002CAC18 /* MainViewModel.swift */,
 				53839262260F3640002CAC18 /* MainView.swift */,
 				538392C0260F533D002CAC18 /* StoryView.swift */,
@@ -269,6 +272,14 @@
 				538392AA260F463E002CAC18 /* cities.json */,
 			);
 			path = Data;
+			sourceTree = "<group>";
+		};
+		538392E4260F6E68002CAC18 /* Header */ = {
+			isa = PBXGroup;
+			children = (
+				538392DF260F6E55002CAC18 /* HeaderView.swift */,
+			);
+			path = Header;
 			sourceTree = "<group>";
 		};
 		9F29E8751C077C51120F47A5 /* Frameworks */ = {
@@ -529,6 +540,7 @@
 				538392DB260F6711002CAC18 /* NewsArrayView.swift in Sources */,
 				538392C6260F53F6002CAC18 /* GuideView.swift in Sources */,
 				53839263260F3640002CAC18 /* MainView.swift in Sources */,
+				538392E0260F6E55002CAC18 /* HeaderView.swift in Sources */,
 				538392CE260F62F3002CAC18 /* NewsView.swift in Sources */,
 				53839284260F38A9002CAC18 /* StoryModel.swift in Sources */,
 				5383928E260F3A85002CAC18 /* CityModel.swift in Sources */,

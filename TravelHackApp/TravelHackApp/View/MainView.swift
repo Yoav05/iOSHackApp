@@ -18,7 +18,8 @@ struct MainView: View {
     
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
-            VStack(alignment: .leading) {
+            VStack(alignment: .center) {
+                HeaderView().environmentObject(viewModel)
                 StoryView().environmentObject(viewModel)
                     .padding(.bottom)
                 GuideView().environmentObject(viewModel)
