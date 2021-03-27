@@ -35,6 +35,9 @@
 		538392CE260F62F3002CAC18 /* NewsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538392CD260F62F3002CAC18 /* NewsView.swift */; };
 		538392DB260F6711002CAC18 /* NewsArrayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538392DA260F6711002CAC18 /* NewsArrayView.swift */; };
 		538392E0260F6E55002CAC18 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538392DF260F6E55002CAC18 /* HeaderView.swift */; };
+		53A13544260F86AC00D3C9C6 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A13543260F86AC00D3C9C6 /* CardView.swift */; };
+		53A13549260FA14200D3C9C6 /* CardOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A13548260FA14200D3C9C6 /* CardOverlayView.swift */; };
+		53A1354F260FB04900D3C9C6 /* RoutScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A1354E260FB04900D3C9C6 /* RoutScreenViewController.swift */; };
 		53D123F7260F77DE001C9E5C /* ChooseEventViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D123F6260F77DE001C9E5C /* ChooseEventViewModel.swift */; };
 		53D123FC260F77EB001C9E5C /* ChooseEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D123FB260F77EB001C9E5C /* ChooseEventViewController.swift */; };
 		933FDB8D708C5F4805B723E1 /* Pods_TravelHackApp_TravelHackAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45BCBA04F5DB6CE9DC7F1994 /* Pods_TravelHackApp_TravelHackAppUITests.framework */; };
@@ -97,6 +100,9 @@
 		538392CD260F62F3002CAC18 /* NewsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsView.swift; sourceTree = "<group>"; };
 		538392DA260F6711002CAC18 /* NewsArrayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsArrayView.swift; sourceTree = "<group>"; };
 		538392DF260F6E55002CAC18 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		53A13543260F86AC00D3C9C6 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		53A13548260FA14200D3C9C6 /* CardOverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardOverlayView.swift; sourceTree = "<group>"; };
+		53A1354E260FB04900D3C9C6 /* RoutScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutScreenViewController.swift; sourceTree = "<group>"; };
 		53D123F6260F77DE001C9E5C /* ChooseEventViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseEventViewModel.swift; sourceTree = "<group>"; };
 		53D123FB260F77EB001C9E5C /* ChooseEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseEventViewController.swift; sourceTree = "<group>"; };
 		62AC98924A1F956D928C213D /* Pods-TravelHackApp-TravelHackAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TravelHackApp-TravelHackAppUITests.debug.xcconfig"; path = "Target Support Files/Pods-TravelHackApp-TravelHackAppUITests/Pods-TravelHackApp-TravelHackAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -226,6 +232,7 @@
 		53839241260F33F4002CAC18 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				53A1354D260FB01900D3C9C6 /* RoutScreen */,
 				53D123EA260F74C7001C9E5C /* ChooseEvent */,
 				53D123E6260F747C001C9E5C /* MainScreen */,
 			);
@@ -273,6 +280,14 @@
 			path = Data;
 			sourceTree = "<group>";
 		};
+		53A1354D260FB01900D3C9C6 /* RoutScreen */ = {
+			isa = PBXGroup;
+			children = (
+				53A1354E260FB04900D3C9C6 /* RoutScreenViewController.swift */,
+			);
+			path = RoutScreen;
+			sourceTree = "<group>";
+		};
 		53D123E6260F747C001C9E5C /* MainScreen */ = {
 			isa = PBXGroup;
 			children = (
@@ -292,6 +307,8 @@
 			children = (
 				53D123F6260F77DE001C9E5C /* ChooseEventViewModel.swift */,
 				53D123FB260F77EB001C9E5C /* ChooseEventViewController.swift */,
+				53A13543260F86AC00D3C9C6 /* CardView.swift */,
+				53A13548260FA14200D3C9C6 /* CardOverlayView.swift */,
 			);
 			path = ChooseEvent;
 			sourceTree = "<group>";
@@ -550,6 +567,7 @@
 			files = (
 				538392C1260F533D002CAC18 /* StoryView.swift in Sources */,
 				53839289260F3A70002CAC18 /* NewsModel.swift in Sources */,
+				53A1354F260FB04900D3C9C6 /* RoutScreenViewController.swift in Sources */,
 				53839204260F32AE002CAC18 /* AppDelegate.swift in Sources */,
 				538392DB260F6711002CAC18 /* NewsArrayView.swift in Sources */,
 				538392C6260F53F6002CAC18 /* GuideView.swift in Sources */,
@@ -562,12 +580,14 @@
 				5383928E260F3A85002CAC18 /* CityModel.swift in Sources */,
 				53839271260F37CC002CAC18 /* NetworkService.swift in Sources */,
 				53839250260F349D002CAC18 /* MainCoordiantor.swift in Sources */,
+				53A13549260FA14200D3C9C6 /* CardOverlayView.swift in Sources */,
 				53839279260F37FF002CAC18 /* LocalModel.swift in Sources */,
 				5383925E260F3515002CAC18 /* CoordinatorProtocol.swift in Sources */,
 				53839206260F32AE002CAC18 /* SceneDelegate.swift in Sources */,
 				53839293260F3C8F002CAC18 /* GuideModel.swift in Sources */,
 				5383927E260F3817002CAC18 /* ModelProtocol.swift in Sources */,
 				53839256260F34BB002CAC18 /* ViewBuilder.swift in Sources */,
+				53A13544260F86AC00D3C9C6 /* CardView.swift in Sources */,
 				53839268260F3651002CAC18 /* MainViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

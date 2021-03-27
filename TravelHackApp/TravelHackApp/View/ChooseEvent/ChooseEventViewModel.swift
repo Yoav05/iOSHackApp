@@ -17,4 +17,12 @@ final class ChooseEventViewModel {
         self.coordinator = coordinator
         self.service = service
     }
+    
+    func dismissController() {
+        coordinator.dismissPresentedController()
+    }
+    
+    func nextScreen() {
+        coordinator.rootScreen()
+    }
 }

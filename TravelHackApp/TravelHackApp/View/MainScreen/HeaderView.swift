@@ -36,7 +36,7 @@ struct HeaderView: View {
     
     var rout: some View {
         Button {
-            // TODO: - Позже
+            viewModel.showKolodaScreen()
         } label: {
             VStack {
                 Image(systemName: "wand.and.stars")

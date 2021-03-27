@@ -26,7 +26,6 @@ extension Coordinator {
         if container.last != nil {
             container.last?.present(controller, animated: animated, completion: nil)
         }
-        navigationController.topViewController?.present(controller, animated: true, completion: nil)
         container.append(controller)
     }
 

@@ -30,11 +30,20 @@ final class MainCoordinator: Coordinator {
     }
     
     func start() {
-//        window.rootViewController = navigationController
         let controller = builder.createMainScreeen(coordinator: self)
         container.append(controller)
         window.rootViewController = controller
-//        navigationController.pushViewController(controller, animated: true)
+    }
+    
+    func showKolodaScreen() {
+        let controller = builder.createKolodaScreen(coordinator: self)
+        navigationController = UINavigationController(rootViewController: controller)
+        presentController(controller: navigationController, animated: true, style: .overFullScreen)
+    }
+    
+    func rootScreen() {
+        let controller = builder.createRoutScreen(coordinator: self)
+        navigationController.pushViewController(controller, animated: true)
     }
 }
 
