@@ -25,6 +25,10 @@ class PayScreenViewController: UIHostingController<PayScreen> {
 struct PayScreen: View {
     
     private let viewModel: PayViewModel
+    @State private var cardNumber: String = "0000 1111 2222 3333"
+    @State private var date: String = "08/24"
+    @State private var cvv: String = "377"
+    
     
     init(viewModel: PayViewModel) {
         self.viewModel = viewModel
@@ -32,13 +36,49 @@ struct PayScreen: View {
     
     var body: some View {
         
-        VStack {
-            Text("Экран оплаты")
-            Spacer()
-            payButton
+        VStack(alignment: .center) {
+            Text("Оплата маршрута")
+                .font(.headline)
+            VStack(alignment: .leading) {
+                Text("Номер карты")
+                    .font(.title3)
+                    .foregroundColor(.gray)
+                TextField("0000 1111 2222 3333", text: $cardNumber)
+                    .font(.title2)
+            }
+            .padding()
+            
+            VStack(alignment: .leading) {
+                Text("Дата")
+                    .font(.title3)
+                    .foregroundColor(.gray)
+                TextField("08/24", text: $date)
+                    .font(.title2)
+            }
+            .padding()
+            
+            VStack(alignment: .leading) {
+                Text("CVV")
+                    .font(.title3)
+                    .foregroundColor(.gray)
+                TextField("***", text: $cvv)
+                    .frame(alignment: .trailing)
+                    .font(.title2)
+            }
+            .padding()
+            VStack(alignment: .trailing) {
+            Text("К оплате:")
+                .font(.title3)
+                .foregroundColor(.gray)
+            Text("\(Int.random(in: 500...1000) * viewModel.items.count) ₽")
+                .font(.title2)
+            }.padding()
+
         }
+
+        Spacer()
+        payButton
     }
-    
     var payButton: some View {
         Button {
             viewModel.qrCodeScreen()
@@ -54,6 +94,7 @@ struct PayScreen: View {
         }
         .buttonStyle(PlainButtonStyle())
         .padding()
-
+        
     }
+    
 }

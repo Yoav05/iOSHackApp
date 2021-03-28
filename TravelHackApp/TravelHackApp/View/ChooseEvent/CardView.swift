@@ -10,23 +10,24 @@ import SDWebImage
 
 final class CardView: UIView {
     
-    private let imageUrl: String
-    private let title: String
-    private let distance: Double
+    private let lon: Double = 55.72222
+    private let lat: Double = 37.55192
+     
+    let guideModel: GuideModel
     
     private lazy var imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
         imageView.layer.cornerRadius = 10
         imageView.clipsToBounds = true
-        let url = URL(string: imageUrl)
+        let url = URL(string: guideModel.previewImage ?? "")
         imageView.sd_setImage(with: url, completed: nil)
         return imageView
     }()
     
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
-        label.text = title
+        label.text = guideModel.title
         label.textAlignment = .left
         label.font = UIFont.systemFont(ofSize: 25, weight: .medium)
         label.textColor = UIColor.white
@@ -35,7 +36,7 @@ final class CardView: UIView {
     
     private lazy var distanceLabel: UILabel = {
         let label = UILabel()
-        label.text = "\(Int(distance)) км"
+        label.text = "\(Int.random(in: 3..<30)) км"
         label.textAlignment = .left
         label.font = UIFont.systemFont(ofSize: 20, weight: .medium)
         label.textColor = UIColor.white
@@ -43,13 +44,9 @@ final class CardView: UIView {
     }()
     
     init(
-        imageUrl: String,
-        title: String,
-        distance: Double
+        guideModel: GuideModel
     ) {
-        self.imageUrl = imageUrl
-        self.title = title
-        self.distance = distance
+        self.guideModel = guideModel
         super.init(frame: .zero)
         setupLayout()
     }

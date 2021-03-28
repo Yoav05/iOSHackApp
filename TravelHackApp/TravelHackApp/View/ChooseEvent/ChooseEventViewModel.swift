@@ -18,11 +18,25 @@ final class ChooseEventViewModel {
         self.service = service
     }
     
+    var addedPlaces: [GuideModel] = []
+    
+    var items: [GuideModel] = []
+    
     func dismissController() {
         coordinator.dismissPresentedController()
     }
     
+    func getGuides(completion: @escaping () -> Void) {
+        service.getGuide { [weak self] guides in
+            guard let self = self else { return }
+            DispatchQueue.main.async {
+                self.items = guides.shuffled()
+                completion()
+            }
+        }
+    }
+    
     func nextScreen() {
-        coordinator.rootScreen()
+        coordinator.rootScreen(models: addedPlaces)
     }
 }

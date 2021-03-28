@@ -11,8 +11,8 @@ import UIKit
 protocol ViewBuilderProtocol {
     func createMainScreeen(coordinator: MainCoordinator) -> UIViewController
     func createKolodaScreen(coordinator: MainCoordinator) -> UIViewController
-    func createRoutScreen(coordinator: MainCoordinator) -> UIViewController
-    func createPayScreen(coordinator: MainCoordinator) -> UIViewController
+    func createRoutScreen(coordinator: MainCoordinator, models: [GuideModel]) -> UIViewController
+    func createPayScreen(coordinator: MainCoordinator, models: [GuideModel]) -> UIViewController
     func createQrScreen(coordinator: MainCoordinator) -> UIViewController
 }
 
@@ -35,17 +35,17 @@ final class ViewBuilder: ViewBuilderProtocol {
         return controller
     }
     
-    func createRoutScreen(coordinator: MainCoordinator) -> UIViewController {
+    func createRoutScreen(coordinator: MainCoordinator, models: [GuideModel]) -> UIViewController {
         let model = service
-        let viewModel = RoutViewModel(coordinator: coordinator, service: model)
+        let viewModel = RoutViewModel(coordinator: coordinator, service: model, items: models)
         let view = RoutScreen(viewModel: viewModel)
         let controller = RoutScreenViewController(rootView: view)
         return controller
     }
     
-    func createPayScreen(coordinator: MainCoordinator) -> UIViewController {
+    func createPayScreen(coordinator: MainCoordinator, models: [GuideModel]) -> UIViewController {
         let model = service
-        let viewModel = PayViewModel(coordinator: coordinator, service: model)
+        let viewModel = PayViewModel(coordinator: coordinator, service: model, items: models)
         let view = PayScreen(viewModel: viewModel)
         let controller = PayScreenViewController(rootView: view)
         return controller

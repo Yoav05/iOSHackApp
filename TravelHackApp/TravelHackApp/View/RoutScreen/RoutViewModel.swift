@@ -13,14 +13,17 @@ final class RoutViewModel: ObservableObject {
     private let service: ModelProtocol
     
     init(coordinator: MainCoordinator,
-         service: ModelProtocol) {
+         service: ModelProtocol,
+         items: [GuideModel]
+    ) {
         self.coordinator = coordinator
         self.service = service
+        self.items = items
     }
     
-    @Published var items: [GuideModel] = []
-
+    @Published var items: [GuideModel]
+    
     func payScreen() {
-        coordinator.showPayScreen()
+        coordinator.showPayScreen(models: items)
     }
 }

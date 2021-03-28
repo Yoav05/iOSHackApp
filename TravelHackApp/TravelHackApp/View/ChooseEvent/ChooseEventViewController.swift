@@ -12,6 +12,8 @@ final class ChooseEventViewController: UIViewController {
     
     private let viewModel: ChooseEventViewModel
     
+    private var timeCounter: Double = 0
+    
     init(viewModel: ChooseEventViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
@@ -78,22 +80,20 @@ final class ChooseEventViewController: UIViewController {
         super.viewDidLoad()
         setupUI()
         setupLayout()
+        viewModel.getGuides { [weak self] in
+            self?.kolodaView.reloadData()
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        navigationController?.setNavigationBarHidden(true, animated: true)
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
         navigationController?.setNavigationBarHidden(false, animated: true)
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        navigationController?.setNavigationBarHidden(true, animated: true)
+    }
+    
     private func setupUI() {
-        navigationController?.navigationBar.prefersLargeTitles = false
-        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-        navigationController?.navigationBar.shadowImage = UIImage()
-        navigationController?.navigationBar.tintColor = .black
-        navigationController?.setNavigationBarHidden(true , animated: false)
         let backBarButtton = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         navigationItem.backBarButtonItem = backBarButtton
         
@@ -106,17 +106,14 @@ final class ChooseEventViewController: UIViewController {
     }
     
     private func setupLayout() {
-        [exitButton, timeLabel, kolodaView, doneButton, acceptButton, declineButton].forEach {
+        [timeLabel, kolodaView, doneButton, acceptButton, declineButton].forEach {
             $0.translatesAutoresizingMaskIntoConstraints = false
             view.addSubview($0)
         }
         
         NSLayoutConstraint.activate([
             
-            exitButton.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor, constant: 12),
-            exitButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            
-            timeLabel.topAnchor.constraint(equalTo: exitButton.bottomAnchor, constant: 12),
+            timeLabel.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor, constant: 12),
             timeLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             
             kolodaView.topAnchor.constraint(equalTo: timeLabel.bottomAnchor, constant: 20),
@@ -161,15 +158,11 @@ final class ChooseEventViewController: UIViewController {
 extension ChooseEventViewController: KolodaViewDataSource {
     
     func kolodaNumberOfCards(_ koloda: KolodaView) -> Int {
-        return 4
+        return viewModel.items.count
     }
     
     func koloda(_ koloda: KolodaView, viewForCardAt index: Int) -> UIView {
-        return CardView(
-            imageUrl: "https://images.unsplash.com/photo-1547483029-77784da27709?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1568&q=80",
-            title: "Tel aviv",
-            distance: 4000.0
-        )
+        return CardView(guideModel: viewModel.items[index])
     }
     
     func kolodaSpeedThatCardShouldDrag(_ koloda: KolodaView) -> DragSpeed {
@@ -186,6 +179,18 @@ extension ChooseEventViewController: KolodaViewDataSource {
     
     func koloda(_ koloda: KolodaView, viewForCardOverlayAt index: Int) -> OverlayView? {
         return CustomOverlayView()
+    }
+    
+    func koloda(_ koloda: KolodaView, didSwipeCardAt index: Int, in direction: SwipeResultDirection) {
+        switch direction {
+        case .right:
+            timeCounter += 1.5 * Double.random(in: 0.5..<1.0)
+            timeLabel.text = "Маршрут займет \(Double(round(timeCounter * 100)/100)) ч."
+            viewModel.items[index].time = timeCounter
+            viewModel.addedPlaces.append(viewModel.items[index])
+        default:
+            break
+        }
     }
 }
 

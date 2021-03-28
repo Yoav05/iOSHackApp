@@ -13,9 +13,12 @@ final class PayViewModel: ObservableObject {
     private let service: ModelProtocol
     
     init(coordinator: MainCoordinator,
-         service: ModelProtocol) {
+         service: ModelProtocol,
+         items: [GuideModel]
+         ) {
         self.coordinator = coordinator
         self.service = service
+        self.items = items
     }
     
     @Published var items: [GuideModel] = []

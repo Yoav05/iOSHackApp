@@ -25,7 +25,7 @@ class RoutScreenViewController: UIHostingController<RoutScreen> {
 struct RoutScreen: View {
     
     private let viewModel: RoutViewModel
-    
+        
     init(viewModel: RoutViewModel) {
         self.viewModel = viewModel
     }
@@ -33,7 +33,14 @@ struct RoutScreen: View {
     var body: some View {
         
         VStack {
-            Text("Экран с маршутами")
+            Text("Ваш маршут")
+            ScrollView{
+                VStack(spacing: 0){
+                    ForEach(0..<viewModel.items.count, id: \.self) { index in
+                        ContentCellView(viewModel: viewModel.items[index], isLast: index == viewModel.items.count - 1)
+                    }
+                }
+            }.padding()
             Spacer()
             payButton
         }
@@ -55,5 +62,30 @@ struct RoutScreen: View {
         .buttonStyle(PlainButtonStyle())
         .padding()
 
+    }
+}
+
+struct ContentCellView: View {
+    var isLast: Bool = false
+    
+    let viewModel: GuideModel
+    
+    init(viewModel: GuideModel, isLast: Bool) {
+        self.viewModel = viewModel
+        self.isLast = isLast
+    }
+    
+    var body: some View {
+        VStack(alignment: HorizontalAlignment.leading, spacing: 0) {
+            HStack {
+                Image(systemName: "message.circle").frame(width: 30)
+                Text(viewModel.title ?? "")
+                Spacer()
+                Text("Время \(viewModel.time ?? 0.0, specifier: "%.2f") ч.")
+            }
+            if !isLast {
+                Rectangle().fill(Color.blue).frame(width: 1, height: 14, alignment: .center).padding(.leading, 15.5)//.offset(y: -10)
+            }
+        }
     }
 }

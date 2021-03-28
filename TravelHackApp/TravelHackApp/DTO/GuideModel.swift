@@ -9,6 +9,7 @@ import Foundation
 
 // MARK: - Guide
 struct GuideModel: Codable, Hashable {
+    var time: Double?
     let id: Int?
     let category: Category?
     let city: City?
@@ -32,6 +33,7 @@ struct GuideModel: Codable, Hashable {
         case lat, lon
         case eventDate = "event_date"
         case blocks
+        case time
     }
     
     struct Block: Codable, Hashable {

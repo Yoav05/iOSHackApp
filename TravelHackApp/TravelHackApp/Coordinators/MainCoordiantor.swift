@@ -44,17 +44,16 @@ final class MainCoordinator: Coordinator {
     
     func showKolodaScreen() {
         let controller = builder.createKolodaScreen(coordinator: self)
-        navigationController = UINavigationController(rootViewController: controller)
-        presentController(controller: navigationController, animated: true, style: .overFullScreen)
-    }
-    
-    func rootScreen() {
-        let controller = builder.createRoutScreen(coordinator: self)
         navigationController.pushViewController(controller, animated: true)
     }
     
-    func showPayScreen() {
-        let controller = builder.createPayScreen(coordinator: self)
+    func rootScreen(models: [GuideModel]) {
+        let controller = builder.createRoutScreen(coordinator: self, models: models)
+        navigationController.pushViewController(controller, animated: true)
+    }
+    
+    func showPayScreen(models: [GuideModel]) {
+        let controller = builder.createPayScreen(coordinator: self, models: models)
         navigationController.pushViewController(controller, animated: true)
     }
     
@@ -64,7 +63,8 @@ final class MainCoordinator: Coordinator {
     }
     
     func nextAfterQR() {
-        dismissPresentedController()
+        let controller = navigationController.viewControllers.first(where: { $0 is MainHostingController })
+        navigationController.popToViewController(controller!, animated: true)
     }
     
 }
