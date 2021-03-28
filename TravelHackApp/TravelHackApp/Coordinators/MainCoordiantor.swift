@@ -42,8 +42,8 @@ final class MainCoordinator: Coordinator {
         navigationController.pushViewController(controller, animated: true)
     }
     
-    func showKolodaScreen() {
-        let controller = builder.createKolodaScreen(coordinator: self)
+    func showKolodaScreen(items: [GuideModel]) {
+        let controller = builder.createKolodaScreen(coordinator: self, items: items)
         navigationController.pushViewController(controller, animated: true)
     }
     

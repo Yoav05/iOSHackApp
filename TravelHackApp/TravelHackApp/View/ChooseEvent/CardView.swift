@@ -20,7 +20,7 @@ final class CardView: UIView {
         imageView.contentMode = .scaleAspectFill
         imageView.layer.cornerRadius = 10
         imageView.clipsToBounds = true
-        let url = URL(string: guideModel.previewImage ?? "")
+        let url = URL(string: guideModel.previewImage ?? guideModel.imageUrl ?? "")
         imageView.sd_setImage(with: url, completed: nil)
         return imageView
     }()

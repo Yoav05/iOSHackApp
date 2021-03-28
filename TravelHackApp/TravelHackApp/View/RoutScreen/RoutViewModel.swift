@@ -5,7 +5,7 @@
 //  Created by Yoav Nemirovsky on 27.03.2021.
 //
 
-import Foundation
+import MapKit
 
 final class RoutViewModel: ObservableObject {
     
@@ -22,8 +22,19 @@ final class RoutViewModel: ObservableObject {
     }
     
     @Published var items: [GuideModel]
+    lazy var points: [MapGuideModel] = {
+        self.items.compactMap { (model) -> MapGuideModel? in
+            MapGuideModel(coordinate: .init(latitude: model.lat ?? 0.0, longitude: model.lon ?? 0.0))
+        }
+    }()
     
     func payScreen() {
         coordinator.showPayScreen(models: items)
     }
 }
+
+struct MapGuideModel: Identifiable {
+    let id = UUID()
+    let coordinate: CLLocationCoordinate2D
+}
+

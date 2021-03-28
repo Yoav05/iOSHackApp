@@ -7,6 +7,7 @@
 
 import SwiftUI
 import UIKit
+import MapKit
 
 class RoutScreenViewController: UIHostingController<RoutScreen> {
     override func viewWillAppear(_ animated: Bool) {
@@ -25,6 +26,10 @@ class RoutScreenViewController: UIHostingController<RoutScreen> {
 struct RoutScreen: View {
     
     private let viewModel: RoutViewModel
+    
+    @State private var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 55.751244, longitude: 37.618423), span: MKCoordinateSpan(latitudeDelta: 0.5, longitudeDelta: 0.5))
+
+
         
     init(viewModel: RoutViewModel) {
         self.viewModel = viewModel
@@ -35,12 +40,21 @@ struct RoutScreen: View {
         VStack {
             Text("Ваш маршут")
             ScrollView{
+                Map(coordinateRegion: $region, annotationItems: viewModel.points) { point in
+                    MapAnnotation(coordinate: point.coordinate, anchorPoint: CGPoint(x: 0.5, y: 0.5)) {
+                        Circle()
+                            .frame(width: 30, height: 30)
+                            .foregroundColor(Color(UIColor.systemRed.withAlphaComponent(0.5)))
+                    }
+                }
+                .frame(height: 300)
                 VStack(spacing: 0){
                     ForEach(0..<viewModel.items.count, id: \.self) { index in
                         ContentCellView(viewModel: viewModel.items[index], isLast: index == viewModel.items.count - 1)
                     }
                 }
-            }.padding()
+                .padding()
+            }
             Spacer()
             payButton
         }

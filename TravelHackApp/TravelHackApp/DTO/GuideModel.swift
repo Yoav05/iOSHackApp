@@ -22,6 +22,7 @@ struct GuideModel: Codable, Hashable {
     let lat, lon: Double?
     let eventDate: String?
     let blocks: [Block]?
+    let imageUrl: String?
 
     enum CodingKeys: String, CodingKey {
         case id, category, city, title
@@ -34,6 +35,7 @@ struct GuideModel: Codable, Hashable {
         case eventDate = "event_date"
         case blocks
         case time
+        case imageUrl = "image_url"
     }
     
     struct Block: Codable, Hashable {

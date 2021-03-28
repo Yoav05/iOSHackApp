@@ -10,7 +10,7 @@ import UIKit
 
 protocol ViewBuilderProtocol {
     func createMainScreeen(coordinator: MainCoordinator) -> UIViewController
-    func createKolodaScreen(coordinator: MainCoordinator) -> UIViewController
+    func createKolodaScreen(coordinator: MainCoordinator, items: [GuideModel]) -> UIViewController
     func createRoutScreen(coordinator: MainCoordinator, models: [GuideModel]) -> UIViewController
     func createPayScreen(coordinator: MainCoordinator, models: [GuideModel]) -> UIViewController
     func createQrScreen(coordinator: MainCoordinator) -> UIViewController
@@ -28,9 +28,9 @@ final class ViewBuilder: ViewBuilderProtocol {
         return controller
     }
     
-    func createKolodaScreen(coordinator: MainCoordinator) -> UIViewController {
+    func createKolodaScreen(coordinator: MainCoordinator, items: [GuideModel]) -> UIViewController {
         let model = service
-        let viewModel = ChooseEventViewModel(coordinator: coordinator, service: model)
+        let viewModel = ChooseEventViewModel(coordinator: coordinator, service: model, items: items)
         let controller = ChooseEventViewController(viewModel: viewModel)
         return controller
     }

@@ -39,8 +39,9 @@ struct HeaderView: View {
             viewModel.showKolodaScreen()
         } label: {
             VStack {
-                Image(systemName: "wand.and.stars")
-                    .font(.system(size: 20, weight: .bold, design: .default))
+                Image("cardIcon")
+                    .frame(width: 20, height: 20, alignment: .center)
+//                    .font(.system(size: 20, weight: .bold, design: .default))
             }
         }
         .buttonStyle(PlainButtonStyle())

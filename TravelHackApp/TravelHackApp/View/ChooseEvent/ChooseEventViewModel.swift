@@ -13,9 +13,11 @@ final class ChooseEventViewModel {
     private let service: ModelProtocol
     
     init(coordinator: MainCoordinator,
-         service: ModelProtocol) {
+         service: ModelProtocol,
+         items: [GuideModel]) {
         self.coordinator = coordinator
         self.service = service
+        self.items = items
     }
     
     var addedPlaces: [GuideModel] = []
@@ -24,16 +26,6 @@ final class ChooseEventViewModel {
     
     func dismissController() {
         coordinator.dismissPresentedController()
-    }
-    
-    func getGuides(completion: @escaping () -> Void) {
-        service.getGuide { [weak self] guides in
-            guard let self = self else { return }
-            DispatchQueue.main.async {
-                self.items = guides.shuffled()
-                completion()
-            }
-        }
     }
     
     func nextScreen() {

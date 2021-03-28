@@ -50,7 +50,7 @@ final class MainViewModel: ObservableObject {
     }
     
     func showKolodaScreen() {
-        coordinator.showKolodaScreen()
+        coordinator.showKolodaScreen(items: guides)
     }
     
     func presentDetailed(model: GuideModel) {

@@ -6,8 +6,12 @@
 //
 
 import SwiftUI
+import MapKit
 
 class MainHostingController: UIHostingController<MainView> {
+    
+    private let locationManager = CLLocationManager()
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.prefersLargeTitles = false
@@ -22,5 +26,20 @@ class MainHostingController: UIHostingController<MainView> {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         navigationController?.setNavigationBarHidden(false , animated: false)
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        guard CLLocationManager.locationServicesEnabled() else {
+          return
+        }
+        locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
+//        locationManager.delegate = self
+        if CLLocationManager.authorizationStatus() == .notDetermined {
+          locationManager.requestWhenInUseAuthorization()
+        } else {
+          locationManager.requestLocation()
+        }
+        
     }
 }

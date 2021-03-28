@@ -80,9 +80,7 @@ final class ChooseEventViewController: UIViewController {
         super.viewDidLoad()
         setupUI()
         setupLayout()
-        viewModel.getGuides { [weak self] in
-            self?.kolodaView.reloadData()
-        }
+        kolodaView.reloadData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
