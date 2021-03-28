@@ -52,4 +52,8 @@ final class MainViewModel: ObservableObject {
     func showKolodaScreen() {
         coordinator.showKolodaScreen()
     }
+    
+    func presentDetailed(model: GuideModel) {
+        coordinator.presentDetailedNews(model: model)
+    }
 }

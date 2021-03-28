@@ -24,7 +24,7 @@ final class ViewBuilder: ViewBuilderProtocol {
         let model = service
         let viewModel = MainViewModel(coordinator: coordinator, modelService: model)
         let view = MainView(viewModel: viewModel)
-        let controller = UIHostingController(rootView: view)
+        let controller = MainHostingController(rootView: view)
         return controller
     }
     

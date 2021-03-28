@@ -30,9 +30,16 @@ final class MainCoordinator: Coordinator {
     }
     
     func start() {
+        window.rootViewController = navigationController
         let controller = builder.createMainScreeen(coordinator: self)
-        container.append(controller)
-        window.rootViewController = controller
+        navigationController.pushViewController(controller, animated: true)
+        container.append(navigationController)
+    }
+    
+    func presentDetailedNews(model: GuideModel) {
+        let view = NewsDetailedScreen(viewModel: model)
+        let controller = NewsDetailedController(rootView: view)
+        navigationController.pushViewController(controller, animated: true)
     }
     
     func showKolodaScreen() {
@@ -59,5 +66,6 @@ final class MainCoordinator: Coordinator {
     func nextAfterQR() {
         dismissPresentedController()
     }
+    
 }
 

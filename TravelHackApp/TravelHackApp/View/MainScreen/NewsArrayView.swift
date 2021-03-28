@@ -13,7 +13,9 @@ struct NewsArrayView: View {
     
     var body: some View {
         ForEach(viewModel.guides, id: \.self) { guideModel in
-            NewsView(viewModel: guideModel)
+            NewsView(viewModel: guideModel).onTapGesture {
+                viewModel.presentDetailed(model: guideModel)
+            }
         }
     }
 }
